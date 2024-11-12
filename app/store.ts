@@ -46,16 +46,16 @@ export const about_cards = [
 export const contacts = [
 	{
 		id: 1,
-		name: "Mr. Ihekwoba Success",
-		title: "",
+		name: "Ihekwoba Success C.",
+		title: "08137095749",
 		photo: "dr-amadi.jpg",
 	},
-	// {
-	// 	id: 0,
-	// 	name: "Dr. I. I. Ayogu",
-	// 	title: "08034178787",
-	// 	photo: "dr-ayogu.jpg",
-	// },
+	{
+		id: 0,
+		name: "Enemuor Chidubem Mmaduka",
+		title: "09034075099",
+		photo: "dr-ayogu.jpg",
+	},
 ];
 
 export const speakers = [
