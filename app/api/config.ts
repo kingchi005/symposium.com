@@ -92,6 +92,6 @@ export async function intitModel(){
 (35, 'sokolie@futo.edu.ng', 'Stanley', 'Adiele', 'Okolie', 'staff', '08030877005', 'SICT', 'CSC', '', '2024-07-10 18:07:52.107'),
 `
  const res=await db.query(sql).catch(err=>Logger.fatal(err,"Error seeding"))
- Logger.info(res[0])
+// Logger.info(res[0])
  // Logger.info("seeded")
 }

@@ -1,15 +1,10 @@
   {
     "version": 2,
+    "framework": "remix",
     "builds": [
       {
-        "src": "/build/src/index.js",
+        "src": "./server.ts",
         "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/build/src"
       }
     ]
   }

@@ -7,24 +7,25 @@ import formidable from "express-formidable";
 import { ErrorHandler } from "~/api/exception";
 import { Handler } from "~/api/healpers";
 
+const PORT = process.env.PORT || 8080
 const viteDevServer =
-	process.env.NODE_ENV === "production"
-		? null
-		: await import("vite").then((vite) =>
-				vite.createServer({
-					server: { middlewareMode: true },
-				})
-		  );
+    process.env.NODE_ENV === "production"
+        ? null
+        : await import("vite").then(vite =>
+              vite.createServer({
+                  server: { middlewareMode: true }
+              })
+          );
 
 const app = express();
 
 app.use(
-	viteDevServer ? viteDevServer.middlewares : express.static("build/client")
+    viteDevServer ? viteDevServer.middlewares : express.static("build/client")
 );
 
 const build = viteDevServer
-	? () => viteDevServer.ssrLoadModule("virtual:remix/server-build")
-	: await import("./build/server/index.js");
+    ? () => viteDevServer.ssrLoadModule("virtual:remix/server-build")
+    : await import("./build/server/index.js");
 
 app.use(formidable());
 
@@ -40,7 +41,7 @@ app.get("/api/participant", Handler(Api.getAllParticipant));
 app.get("/download/participant", Handler(Api.downloadParticipantFile));
 
 app.use("/api", (req, res) => {
-	res.json({ ok: true, message: "welcome to backend" });
+    res.json({ ok: true, message: "welcome to backend" });
 });
 
 //@ts-expect-error
@@ -49,12 +50,14 @@ app.all("*", createRequestHandler({ build }));
 app.use(ErrorHandler);
 
 db.connect()
-	.then(() => {
-		Logger.info("Database connected");
-		// intitModel()
-	})
-	.catch(err=>Logger.fatal(err,"Error connecting to database"));
+    .then(() => {
+        Logger.info("Database connected");
+        // intitModel()
+    })
+    .catch(err => Logger.fatal(err, "Error connecting to database"));
 
-app.listen(3000, () => {
-	Logger.info("App listening on http://localhost:3000");
+app.listen(PORT, () => {
+    Logger.info("App listening on http://localhost:3000");
 });
+
+export default app;
