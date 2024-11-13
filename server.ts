@@ -7,7 +7,7 @@ import formidable from "express-formidable";
 import { ErrorHandler } from "~/api/exception";
 import { Handler } from "~/api/healpers";
 
-const PORT = process.env.PORT || 8080
+const PORT = process.env.PORT || 8080;
 const viteDevServer =
     process.env.NODE_ENV === "production"
         ? null
@@ -52,7 +52,7 @@ app.use(ErrorHandler);
 db.connect()
     .then(() => {
         Logger.info("Database connected");
-        // intitModel()
+        // intitModel();
     })
     .catch(err => Logger.fatal(err, "Error connecting to database"));
 
