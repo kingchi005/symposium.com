@@ -57,7 +57,7 @@ db.connect()
     .catch(err => Logger.fatal(err, "Error connecting to database"));
 
 app.listen(PORT, () => {
-    Logger.info("App listening on http://localhost:3000");
+    Logger.info(`App listening on http://localhost:${PORT}`);
 });
 
 export default app;

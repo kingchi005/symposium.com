@@ -46,7 +46,7 @@ export default function Page() {
 						Register And Secure <br /> Your Spot Today
 					</h2>
 					<p className="text">
-						Don't miss your chance to be part of shaping the future of food.
+						Don't miss your chance to be part of shaping the Web design.
 						Reserve your spot now and embark on a journey of discovery,
 						collaboration and inspiration
 					</p>
